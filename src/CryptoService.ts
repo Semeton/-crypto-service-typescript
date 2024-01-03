@@ -38,3 +38,5 @@ class CryptoService {
     return Buffer.from(plain).toString();
   }
 }
+
+export default CryptoService;

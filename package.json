@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "This package is a robust encryption and decryption service for Node.js applications. It uses the Sodium cryptographic library, ported to JavaScript via the tweetnacl library, to provide secure, efficient encryption and decryption functions. The package is designed to be easy to use, with a simple API that integrates seamlessly into any Node.js application. It's perfect for applications that need to handle sensitive data securely.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Semeton Balogun",
   "license": "ISC",
@@ -13,6 +14,13 @@
     "tweetnacl": "^1.0.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.23.7",
+    "@babel/preset-env": "^7.23.7",
+    "@babel/preset-typescript": "^7.23.3",
+    "@types/jest": "^29.5.11",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
     "typescript": "^5.3.3"
   }
 }
