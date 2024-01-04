@@ -1,6 +1,6 @@
 {
   "name": "sm-crypto-service",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This package is an encryption and decryption service for Node.js applications. It uses the Sodium cryptographic library, ported to JavaScript via the tweetnacl library, to provide secure, efficient encryption and decryption functions. The package is designed to be easy to use, with a simple API that integrates seamlessly into any Node.js application. It's perfect for applications that need to handle sensitive data securely.",
   "main": "index.js",
   "type": "module",
