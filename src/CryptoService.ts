@@ -6,7 +6,7 @@ import { randomBytes, createHash } from "crypto";
  * @author Semeton Balogun <balogunsemeton@gmail.com>
  * January 2024
  */
-class CryptoService {
+class CryptoService implements ICryptoInterface {
   private key: string;
 
   /**
@@ -24,7 +24,7 @@ class CryptoService {
    * @param {string} secretCode - The secret code to use for encryption.
    * @returns {string} - The encrypted message.
    */
-  encrypt(message: string, secretCode: string): string {
+  public encrypt(message: string, secretCode: string): string {
     const nonce = randomBytes(nacl.secretbox.nonceLength);
     const keyHash = createHash("sha256")
       .update(this.key + secretCode)
@@ -43,7 +43,7 @@ class CryptoService {
    * @param {string} secretCode - The secret code to use for decryption.
    * @returns {string | null} - The decrypted message, or null if decryption failed.
    */
-  decrypt(encrypted: string, secretCode: string): string | null {
+  public decrypt(encrypted: string, secretCode: string): string | null {
     const cipher = Buffer.from(encrypted, "base64");
     const nonce = cipher.slice(0, nacl.secretbox.nonceLength);
     const box = cipher.slice(nacl.secretbox.nonceLength);
