@@ -43,7 +43,7 @@ class CryptoService implements ICryptoInterface {
    * @param {string} secretCode - The secret code to use for decryption.
    * @returns {string | null} - The decrypted message, or null if decryption failed.
    */
-  public decrypt(encrypted: string, secretCode: string): string | null {
+  public decrypt(encrypted: string, secretCode: string): string {
     const cipher = Buffer.from(encrypted, "base64");
     const nonce = cipher.slice(0, nacl.secretbox.nonceLength);
     const box = cipher.slice(nacl.secretbox.nonceLength);
@@ -53,7 +53,7 @@ class CryptoService implements ICryptoInterface {
     const plain = nacl.secretbox.open(box, nonce, keyHash);
 
     if (!plain) {
-      return null;
+      return "Error: Invalid secret code";
     }
 
     return Buffer.from(plain).toString();

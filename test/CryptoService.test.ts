@@ -17,7 +17,7 @@ describe("CryptoService", () => {
     expect(decrypted).toBe(message);
   });
 
-  it("should return null when decryption fails", () => {
+  it("should return error message when decryption fails", () => {
     const secretCode = "mySecretCode";
     const wrongSecretCode = "wrongSecretCode";
     const message = "Hello, World!";
@@ -25,7 +25,7 @@ describe("CryptoService", () => {
     const encrypted = service.encrypt(message, secretCode);
     const decrypted = service.decrypt(encrypted, wrongSecretCode);
 
-    expect(decrypted).toBeNull();
+    expect(decrypted).toBe("Error: Invalid secret code");
   });
 
   it("should return a string when encryption is successful", () => {
